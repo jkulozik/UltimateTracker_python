@@ -1,31 +1,46 @@
 # UltimateTracker_python
 
-Directly read orientation and position data from the VIVE Ultimate Tracker. Only available in WINDOWS
+Directly read orientation and position data from the VIVE Ultimate Tracker. Only available on Windows.
+
+## Pre-requirements
+- Install Steam VR.
+- Use a null driver for Steam VR: https://github.com/username223/SteamVRNoHeadset.
+- Install the VIVE Streaming Hub and activate the PC streaming beta:
+  - Download from: https://www.vive.com/us/vive-hub/download/
+  - Activate with code: "VIVEUTRCPreview" (valid as of 08/2024).
+- Follow instructions in the VIVE Streaming Hub.
+- When the trackers indicate ready, launch the code as explained below.
 
 ## VIVE Tracker DirectRead
 
-## Overview
+### Overview
+**VIVE Tracker DirectRead** is a Python tool to read orientation and position data from the VIVE Ultimate Tracker without a VR headset. It logs data to a CSV file and provides real-time 2D and 3D plotting.
 
-**VIVE Tracker DirectRead** is a Python-based tool that allows you to directly read orientation and position data from the VIVE Ultimate Tracker without the need for a headset. This tool logs data to a CSV file and provides real-time plotting of the tracker's position in both 2D and 3D.
+### Features
+- **Direct Tracker Data Access**: Retrieve orientation and position data of the Ultimate Tracker.
+- **CSV Logging**: Log data for analysis.
+- **Live Plotting**: Real-time 2D and 3D plotting.
 
-## Features
-
-- **Direct Tracker Data Access**: Retrieve orientation and position data from the VIVE Ultimate Tracker.
-- **CSV Logging**: Log tracker data to a CSV file for further analysis.
-- **Live Plotting**: Real-time plotting of tracker position in both 2D and 3D.
-- **High Precision Timing**: Use high precision timing for accurate data sampling.
-
-## Requirements
-
+### Requirements
 - Python 3.6+
-- `openvr`
-- `numpy`
-- `matplotlib`
-- `collections`
-- `mpl_toolkits.mplot3d`
-- `win_precise_time`
+- Libraries: `openvr`, `numpy`, `matplotlib`, `collections`, `mpl_toolkits.mplot3d`, `win_precise_time`
 
-You can install the required Python libraries using pip:
+
+### Contact
+
+For any questions or issues, please contact [kulozik@isir.upmc.fr].
+
+### License
+
+This code is licensed under the MIT License.
+
+### Attribution
+
+When using this code, please cite the following:
+
+[Julian Kulozik]. (2024). VIVE Tracker DirectRead. GitHub repository. URL: [https://github.com/jkulozik/UltimateTracker_python]
+
+Install the required Python libraries:
 
 ```sh
 pip install openvr numpy matplotlib collections mpl_toolkits.mplot3d win_precise_time
