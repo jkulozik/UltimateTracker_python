@@ -8,7 +8,7 @@ Directly read orientation and position data from the VIVE Ultimate Tracker. Only
 - Install the VIVE Streaming Hub and activate the PC streaming beta:
   - Download from: https://www.vive.com/us/vive-hub/download/
   - Activate with code: "VIVEUTRCPreview" (valid as of 08/2024).
-- Follow instructions in the VIVE Streaming Hub.
+- Follow instructions in the VIVE Streaming Hub. (update: 21.08.2024, Launch of SteamVR no longer necessary but installation and enabling null HMD is still needed)
 - When the trackers indicate ready, launch the code as explained below.
 
 ## VIVE Tracker DirectRead
