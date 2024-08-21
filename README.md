@@ -25,6 +25,11 @@ Directly read orientation and position data from the VIVE Ultimate Tracker. Only
 - Python 3.6+
 - Libraries: `openvr`, `numpy`, `matplotlib`, `collections`, `mpl_toolkits.mplot3d`, `win_precise_time`
 
+## Application
+- run the python code and modify in line 244 to 246 if you want your tracking data to be:
+- a. live plotted in a 3D plot (migth impact system performance)
+- b. live plotted in a time/XYZ plot
+- c. saved in a .csv file (file name and path to be defined in line 251)  
 
 ### Contact
 
