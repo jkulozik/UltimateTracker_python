@@ -9,8 +9,8 @@ from collections import deque
 from mpl_toolkits.mplot3d import Axes3D
 
 # Define the sampling rate (in Hz)
-SAMPLING_RATE = 100 
-
+SAMPLING_RATE = 120 
+file_name = "ultimate_tracker_data.csv"
 def precise_wait(duration):
     """
     Wait for a specified duration with high precision.
@@ -37,6 +37,7 @@ class VRSystemManager:
         try:
             openvr.init(openvr.VRApplication_Other)
             self.vr_system = openvr.VRSystem()
+            print(f"Starting Capture: {e}")
         except Exception as e:
             print(f"Failed to initialize VR system: {e}")
             return False
@@ -240,14 +241,19 @@ def main():
     csv_logger = CSVLogger()
     plotter = LivePlotter()
 
+    # enable or disable plots (for maximum performance disable all plots)
+    plot_3d = False # live 3D plot (might affect performance)
+    plot_t_xyz = True # live plot of x, y, z positions
+    log_data = True # log data to CSV file
+
     if not vr_manager.initialize_vr_system():
         return
 
-    if not csv_logger.init_csv("tracker_data.csv"):
+    if not csv_logger.init_csv(file_name):
         return
 
-    plotter.init_live_plot()
-    plotter.init_3d_plot()
+    if plot_t_xyz: plotter.init_live_plot()
+    if plot_3d: plotter.init_3d_plot()
 
     try:
         while True:
@@ -258,9 +264,9 @@ def main():
                     if device_class == openvr.TrackedDeviceClass_GenericTracker:
                         current_time = time.time()
                         position = DataConverter.convert_to_quaternion(poses[i].mDeviceToAbsoluteTracking)
-                        plotter.update_live_plot(position[:3])
-                        plotter.update_3d_plot(position[:3])
-                        csv_logger.log_data_csv(i - 1, current_time, position)
+                        if plot_3d: plotter.update_live_plot(position[:3])
+                        if plot_t_xyz: plotter.update_3d_plot(position[:3])
+                        if log_data: csv_logger.log_data_csv(i - 1, current_time, position)
             precise_wait(1 / SAMPLING_RATE)
     except KeyboardInterrupt:
         print("Stopping data collection...")
