@@ -1,6 +1,6 @@
 # UltimateTracker_python
 
-Directly read orientation and position data from the VIVE Ultimate Tracker. Only available on Windows.
+Directly read orientation and position data from the VIVE Ultimate Tracker using Python. Only available on Windows.
 
 ## Pre-requirements
 - Install Steam VR.
