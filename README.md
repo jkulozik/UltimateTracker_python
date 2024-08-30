@@ -34,7 +34,7 @@ Directly read orientation and position data from the VIVE Ultimate Tracker using
 
 ### Contact
 
-For any questions or issues, please contact [kulozik@isir.upmc.fr].
+For any questions or issues, please contact [kulozik[at]isir.upmc.fr].
 
 ### License
 
