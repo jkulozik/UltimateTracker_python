@@ -4,10 +4,10 @@ Directly read orientation and position data from the VIVE Ultimate Tracker. Only
 
 ## Pre-requirements
 - Install Steam VR.
-- Use a null driver for Steam VR: https://github.com/username223/SteamVRNoHeadset.
+- Enable the null driver for a virtual headset using this: [SteamVRNoHeadset](https://github.com/username223/SteamVRNoHeadset).
 - Install the VIVE Streaming Hub and activate the PC streaming beta:
-  - Download from: https://www.vive.com/us/vive-hub/download/
-  - Activate with code: "VIVEUTRCPreview" (valid as of 08/2024).
+  - Download from: [VIVEStreamingHub](https://www.vive.com/us/vive-hub/download/)
+  - Activate teh PC Beta with code: "VIVEUTRCPreview" (valid as of 08/2024).
 - Follow instructions in the VIVE Streaming Hub. (update: 21.08.2024, Launch of SteamVR no longer necessary but installation and enabling null HMD is still needed)
 - Follow the instructions to create a map. Ignore the last step demanding a SteamVR headset connection.
 - When the trackers indicate ready, launch the code as explained below.
