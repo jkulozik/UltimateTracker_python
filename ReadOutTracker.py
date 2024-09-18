@@ -37,7 +37,7 @@ class VRSystemManager:
         try:
             openvr.init(openvr.VRApplication_Other)
             self.vr_system = openvr.VRSystem()
-            print(f"Starting Capture: {e}")
+            print(f"Starting Capture")
         except Exception as e:
             print(f"Failed to initialize VR system: {e}")
             return False
@@ -243,8 +243,9 @@ def main():
 
     # enable or disable plots (for maximum performance disable all plots)
     plot_3d = False # live 3D plot (might affect performance)
-    plot_t_xyz = True # live plot of x, y, z positions
+    plot_t_xyz = False # live plot of x, y, z positions
     log_data = True # log data to CSV file
+    print_data = True # print data to console
 
     if not vr_manager.initialize_vr_system():
         return
@@ -264,15 +265,17 @@ def main():
                     if device_class == openvr.TrackedDeviceClass_GenericTracker:
                         current_time = time.time()
                         position = DataConverter.convert_to_quaternion(poses[i].mDeviceToAbsoluteTracking)
-                        if plot_3d: plotter.update_live_plot(position[:3])
-                        if plot_t_xyz: plotter.update_3d_plot(position[:3])
+                        if plot_t_xyz: plotter.update_live_plot(position[:3])
+                        if plot_3d: plotter.update_3d_plot(position[:3])
                         if log_data: csv_logger.log_data_csv(i - 1, current_time, position)
+                        if print_data: print(f"Tracker {i - 1}: {position}")
             precise_wait(1 / SAMPLING_RATE)
     except KeyboardInterrupt:
         print("Stopping data collection...")
     finally:
         vr_manager.shutdown_vr_system()
         csv_logger.close_csv()
+
 
 if __name__ == "__main__":
     main()
